@@ -1,0 +1,70 @@
+#################################################################################################
+# File              : http_bridge_param.yaml
+# Last Update Date  : 2022/12/15
+# Author            : S.Kumada
+#################################################################################################
+# Change history 
+# DATE        Author     Description
+# 2022/12/15  S.Kuamda   2021年開発のhttp_bridgeをベースに新規作成
+#################################################################################################
+
+# URL
+set_url: http://localhost:3000 # HTTP通信先のサーバー
+
+# ロボットの機体情報をRDRに登録するAPI
+robot_info:
+    http_api:       /RDBS/data/rdr/put/RobotInfo # API名
+    req_topic_name: /ros_bridge/http/req/robot_info # リクエスト受信トピック
+    res_topic_name: /ros_bridge/http/res/robot_info # レスポンス配信トピック
+
+# 自己位置・局所経路探用地図情報一覧(最大10件)を取得するAPI
+get_map_data_list:
+    http_api:       /RDBS/data/rdr/get/MapDataList # API名
+    req_topic_name: /ros_bridge/http/req/map_data_list # リクエスト受信トピック
+    res_topic_name: /ros_bridge/http/res/map_data_list # レスポンス配信トピック
+
+# 地図をRDRに登録するAPI
+put_map_data:
+    http_api:       /RDBS/data/rdr/put/MapData # API名
+    req_topic_name: /ros_bridge/http/req/put_map_data # リクエスト受信トピック
+    res_topic_name: /ros_bridge/http/res/put_map_data # レスポンス配信トピック
+
+# 地図1件を取得するAPI
+get_map_data:
+    http_api:       /RDBS/data/rdr/get/MapData # API名
+    req_topic_name: /ros_bridge/http/req/get_map_data # リクエスト受信トピック
+    res_topic_name: /ros_bridge/http/res/get_map_data # レスポンス配信トピック
+
+# 環境地図に紐づくレイヤー地図1件を取得するAPI
+get_layer_map_data:
+    http_api:       /RDBS/data/rdr/get/MapData/layer # API名
+    req_topic_name: /ros_bridge/http/req/get_layer_map_data # リクエスト受信トピック
+    res_topic_name: /ros_bridge/http/res/get_layer_map_data # レスポンス配信トピック
+
+# 物体認識システムで認識したロボットの推定位置を取得するAPI
+get_cam_position_data:
+    http_api:       /RDBS/data/rdr/get/DetectionPosition/debug # API名
+    # http_api:       /RDBS/data/rdr/get/DetectionPosition # API名
+    req_topic_name: /ros_bridge/http/req/get_position_data # リクエスト受信トピック
+    res_topic_name: /ros_bridge/http/res/get_position_data # レスポンス配信トピック
+    
+# 物体認識システムで認識した準静的物体の位置情報を取得するAPI
+get_object_location:
+    http_api:       /RDBS/data/rdr/get/ObjectLocation # API名
+    req_topic_name: /ros_bridge/http/req/get_object_location # リクエスト受信トピック
+    res_topic_name: /ros_bridge/http/res/get_object_location # レスポンス配信トピック
+
+# 地図の補正値情報を配信するAPI
+put_correct_info:
+    http_api:       /RDBS/data/rdr/put/MapPoseCorrect # API名
+    req_topic_name: /ros_bridge/http/req/put_correction_value # リクエスト受信トピック
+    res_topic_name: /ros_bridge/http/res/put_correction_value # レスポンス配信トピック
+
+# 地図の補正値情報を取得するAPI
+get_correct_info:
+    http_api:       /RDBS/data/rdr/get/MapPoseCorrect # API名
+    req_topic_name: /ros_bridge/http/req/get_correction_value # リクエスト受信トピック
+    res_topic_name: /ros_bridge/http/res/get_correction_value # レスポンス配信トピック
+
+# [Debug]受信した地図データの中身表示
+debug_print_map_data: false

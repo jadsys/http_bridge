@@ -1,0 +1,10 @@
+<launch>
+  <arg name="ENTITY_ID" default="megarover_02"/>
+
+  <group ns="$(arg ENTITY_ID)">
+    <node pkg="http_bridge" type="http_bridge_node" name="http_bridge_node" output="screen" >
+      <param name="robot_id" value="$(arg ENTITY_ID)" />
+      <rosparam file="$(find http_bridge)/param/http_bridge_param.yaml" command="load" />
+    </node>
+  </group>
+</launch>
